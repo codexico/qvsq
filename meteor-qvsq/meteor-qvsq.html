@@ -4,28 +4,37 @@
 
 <body>
   <div id="outer">
-    {{> lastquote}}
-    {{> leaderboard}}
+    {{> lastversus}}
+    {{> newquote}}
+    {{> listversus}}
   </div>
+  <footer>
+    <hr>
+    <a href="https://github.com/codexico/qvsq">show me the code</a>
+  </footer>
 </body>
 
-<template name="lastquote">
-  <div class="lastq">
+<template name="lastversus">
+  <div class="lastversus">
     <h2>last</h2>
-    {{#each quote}}
-      {{> quote}}
+    {{#each versus}}
+     {{> qvsq}}
     {{/each}}
     <hr>
   </div>
 </template>
 
-<template name="leaderboard">
-  <div class="leaderboard">
-    {{#each quotes}}
-      {{> quote}}
+<template name="listversus">
+  <div class="listversus">
+    <h2>List</h2>
+    {{#each versus}}
+      {{> qvsq}}
+      <br>
     {{/each}}
   </div>
+</template>
 
+<template name="newquote">
   <h1>New qvsq:</h1>
   <form id="addqvsq">
     <input type="text" id="q1" value="" />
@@ -33,14 +42,13 @@
     <input type="text" id="q2" value="" />
     <input type="submit" value="Add!" />
   </form>
-
 </template>
 
-<template name="quote">
-  <div class="quote {{selected}}">
-    <span class="name">{{quote.q1}}</span>
+<template name="qvsq">
+  <div class="versus">
+    <span class="q1">{{q1}}</span>
     <span class="vs"> VS </span>
-    <span class="score">{{quote.q2}}</span>
+    <span class="q2">{{q2}}</span>
   </div>
 </template>
 
