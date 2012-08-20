@@ -1,0 +1,46 @@
+<head>
+  <title>Quote vs Quote</title>
+</head>
+
+<body>
+  <div id="outer">
+    {{> lastquote}}
+    {{> leaderboard}}
+  </div>
+</body>
+
+<template name="lastquote">
+  <div class="lastq">
+    <h2>last</h2>
+    {{#each quote}}
+      {{> quote}}
+    {{/each}}
+    <hr>
+  </div>
+</template>
+
+<template name="leaderboard">
+  <div class="leaderboard">
+    {{#each quotes}}
+      {{> quote}}
+    {{/each}}
+  </div>
+
+  <h1>New qvsq:</h1>
+  <form id="addqvsq">
+    <input type="text" id="q1" value="" />
+    <span class="vs">VS</span>
+    <input type="text" id="q2" value="" />
+    <input type="submit" value="Add!" />
+  </form>
+
+</template>
+
+<template name="quote">
+  <div class="quote {{selected}}">
+    <span class="name">{{quote.q1}}</span>
+    <span class="vs"> VS </span>
+    <span class="score">{{quote.q2}}</span>
+  </div>
+</template>
+
